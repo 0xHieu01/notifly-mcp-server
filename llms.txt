@@ -1,0 +1,11 @@
+<!-- Notifly SDK LLMS mapping -->
+
+# Notifly SDK Index Mapping
+
+- [iOS](https://raw.githubusercontent.com/team-michael/notifly-ios-sdk/refs/heads/main/llms.txt)
+- [Android](https://raw.githubusercontent.com/team-michael/notifly-android-sdk/refs/heads/main/llms.txt)
+- [Flutter](https://raw.githubusercontent.com/team-michael/notifly_flutter/refs/heads/main/llms.txt)
+- [React Native](https://raw.githubusercontent.com/team-michael/notifly-react-native-sdk/refs/heads/main/llms.txt)
+- [JavaScript](https://raw.githubusercontent.com/team-michael/notifly-js-sdk/refs/heads/main/llms.txt)
+- [Google Tag Manager Template](https://raw.githubusercontent.com/notifly-tech/notifly-gtm-template/refs/heads/main/llms.txt)
+
