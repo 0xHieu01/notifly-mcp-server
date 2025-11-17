@@ -30,7 +30,7 @@ Key capabilities:
 Install Notifly MCP Server:
 
 ```bash
-npm i -g notifly-mcp-server
+npm i -g notifly-mcp-server@latest
 ```
 
 Create or update the `.mcp.json` at your project root (or the configuration
@@ -46,7 +46,7 @@ Add Notifly with:
   "mcpServers": {
     "notifly-mcp-server": {
       "command": "npx",
-      "args": ["-y", "notifly-mcp-server"]
+      "args": ["-y", "notifly-mcp-server@latest"]
     }
   }
 }
@@ -73,7 +73,7 @@ Codex CLI:
 [mcp_servers]
   [mcp_servers.notifly]
   command = "npx"
-  args = ["-y", "notifly-mcp-server"]
+  args = ["-y", "notifly-mcp-server@latest"]
 ```
 
 Restart your MCP client to load the configuration.
