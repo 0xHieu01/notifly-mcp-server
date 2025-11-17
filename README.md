@@ -97,7 +97,6 @@ Notes:
 
 - Network access is required to fetch documentation pages and SDK source files.
 - Default timeouts and result counts can be tuned via environment variables:
-  - `DEFAULT_API_TIMEOUT` (ms, default: 30000)
   - `DOCS_SEARCH_MAX_RESULTS` (default: 3)
   - `SDK_SEARCH_MAX_RESULTS` (default: 3)
 
