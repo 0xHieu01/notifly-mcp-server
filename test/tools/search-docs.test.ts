@@ -65,7 +65,7 @@ describe("Documentation Search Tool", () => {
       );
 
       expect(result).toContain("iOS SDK Setup");
-      expect(fetch).toHaveBeenCalledWith("https://docs.notifly.tech/ko/llms.txt");
+      expect(fetch).toHaveBeenCalledWith("https://docs.notifly.tech/llms.txt");
     });
 
     it("should use KO llms index even for English queries", async () => {
@@ -88,7 +88,7 @@ describe("Documentation Search Tool", () => {
         mockContext
       );
       expect(result).toContain("Getting Started");
-      expect(fetch).toHaveBeenCalledWith("https://docs.notifly.tech/ko/llms.txt");
+      expect(fetch).toHaveBeenCalledWith("https://docs.notifly.tech/llms.txt");
     });
   });
 

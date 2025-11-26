@@ -1,6 +1,6 @@
 {
   "name": "notifly-mcp-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Notifly MCP Server for assisting Notifly SDK/API integrations with semantic search across Notifly docs and SDK source (iOS, Android, Flutter, React Native).",
   "license": "SEE LICENSE IN LICENSE",
   "author": "Notifly",
