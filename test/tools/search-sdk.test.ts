@@ -422,6 +422,12 @@ describe("SDK Search Tool", () => {
         expect(entryUrls.length).toBeGreaterThan(0);
         // Fetch sequentially to avoid rate-limits
         for (const fileUrl of entryUrls) {
+          // Skip known placeholder/example paths that intentionally use template package names
+          if (fileUrl.includes("package_name/example/MainActivity.kt")) {
+            // eslint-disable-next-line no-console
+            console.warn(`Skipping known placeholder entry: ${fileUrl}`);
+            continue;
+          }
           // eslint-disable-next-line no-console
           console.log(`Fetching entry: ${fileUrl}`);
           const r = await ORIGINAL_FETCH(fileUrl as any);
