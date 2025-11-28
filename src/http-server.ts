@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express, { Response } from "express";
 import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
 import { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
@@ -163,7 +163,7 @@ class StreamableHttpTransport implements Transport {
         this._onclose = handler;
     }
 
-    set onerror(handler: (error: Error) => void) {
+    set onerror(_handler: (error: Error) => void) {
         // No-op
     }
 }
