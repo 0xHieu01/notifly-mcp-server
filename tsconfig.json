@@ -5,7 +5,7 @@
     "lib": ["ES2022"],
     "moduleResolution": "NodeNext",
     "outDir": "./dist",
-    "rootDir": "./src",
+    // "rootDir": "./src",
     "types": ["node", "vitest"],
     "declaration": true,
     "declarationMap": true,
@@ -22,6 +22,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "api/**/*"],
   "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }

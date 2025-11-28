@@ -100,6 +100,32 @@ Notes:
   - `DOCS_SEARCH_MAX_RESULTS` (default: 3)
   - `SDK_SEARCH_MAX_RESULTS` (default: 3)
 
+## HTTP Transport & Vercel Deployment
+
+This server supports the Streamable HTTP transport (MCP Protocol 2025-11-25), allowing it to be deployed as a web service (e.g., on Vercel).
+
+### Running HTTP Server Locally
+
+```bash
+npm run start:http
+```
+
+The server will listen on port 3000 (or `PORT` env var).
+Endpoint: `http://localhost:3000/mcp`
+
+### Configuration
+
+- `PORT`: Port to listen on (default: 3000)
+- `ALLOWED_ORIGINS`: Comma-separated list of allowed origins (e.g., `https://myapp.com,http://localhost:3000`). If not set, all origins are allowed (public access).
+- `MCP_API_KEY`: (Optional) Authentication is currently disabled in the code for public access. See `src/http-server.ts` to enable it.
+
+### Deploying to Vercel
+
+1.  Install Vercel CLI: `npm i -g vercel`
+2.  Run `vercel` to deploy.
+
+The server is configured with `api/index.ts` and `vercel.json` to handle requests at `/mcp`.
+
 ## Local Development
 
 ### Local Setup
