@@ -222,18 +222,23 @@ app.post("/mcp", async (req, res) => {
             
             sessions.set(newSessionId, { server, transport });
 
-            // Set headers for SSE
+            // Set Session ID header
             res.setHeader("MCP-Session-Id", newSessionId);
-            res.setHeader("Content-Type", "text/event-stream");
-            res.setHeader("Cache-Control", "no-cache");
-            res.setHeader("Connection", "keep-alive");
-            
-            // Send initial SSE event
-            const eventId = uuidv4();
-            res.write(`id: ${eventId}\nevent: message\ndata: \n\n`);
-            
-            transport.attachResponse(res);
+
+            // Handle synchronously for Vercel optimization
+            const responsePromise = new Promise<JSONRPCMessage>((resolve) => {
+                transport.setPendingRequestHandler(resolve);
+            });
+
             transport.handleMessage(body);
+
+            try {
+                const response = await responsePromise;
+                res.json(response);
+            } catch (e) {
+                console.error("Error handling initialize request:", e);
+                res.status(500).send("Internal Server Error");
+            }
             return;
         } else {
             res.status(400).send("Missing MCP-Session-Id header");
@@ -241,10 +246,14 @@ app.post("/mcp", async (req, res) => {
         }
     }
 
-    const session = sessions.get(sessionId);
+    let session = sessions.get(sessionId);
     if (!session) {
-        res.status(404).send("Session not found");
-        return;
+        // Stateless fallback for Vercel: Create a new session/server on the fly
+        const transport = new StreamableHttpTransport(sessionId);
+        const server = createMcpServer();
+        await server.connect(transport);
+        session = { server, transport };
+        sessions.set(sessionId, session);
     }
 
     // Handle Notifications/Responses (return 202)
