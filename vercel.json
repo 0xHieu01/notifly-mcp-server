@@ -4,5 +4,6 @@
       "source": "/mcp",
       "destination": "/api/index"
     }
-  ]
+  ],
+  "outputDirectory": "dist"
 }
